@@ -8,12 +8,20 @@ public class Deck {
 	private Random random = new Random();
 	
 	public Deck(){
-		initDeck();
+		fullDeck();
 	}
 	
-	public void initDeck(){
+	public void fullDeck(){
 		for(int i = 0; i < 54; i++)
 			deck[i] = true;
 		numberOfCards = 54;
+	}
+	
+	public boolean isCardInDeck(int deckId){
+		return deck[deckId];
+	}
+	
+	public int getNumberOfCards(){
+		return numberOfCards;
 	}
 }

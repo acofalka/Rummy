@@ -47,7 +47,7 @@ public class Card implements Comparable<Card>{
 			throw new IllegalArgumentException();
 		if(suit == Suit.JOKER)
 			return rank + 39;
-		int deckId = suit.getId() * 4 + rank;
+		int deckId = suit.getId() * 13 + rank;
 		return deckId;
 	}
 	
