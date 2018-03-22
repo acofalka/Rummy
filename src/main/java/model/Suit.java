@@ -12,4 +12,8 @@ public enum Suit {
 	private Suit(int id) {
         this.id = id;
     }
+	
+	public int getId(){
+		return id;
+	}
 }
