@@ -1,4 +1,4 @@
-package model_tests;
+package modelTests;
 
 import static org.junit.Assert.*;
 
