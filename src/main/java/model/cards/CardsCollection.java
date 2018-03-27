@@ -1,4 +1,4 @@
-package model;
+package model.cards;
 
 public abstract class CardsCollection {
 	protected boolean[] cards; // true - card with particular deckId is currently in the deck

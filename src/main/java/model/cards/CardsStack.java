@@ -1,13 +1,13 @@
-package model;
+package model.cards;
 
 public class CardsStack extends CardsCollection {
 	
 	public CardsStack(){
 		cards = new boolean[54];
-		emptyDeck();
+		empty();
 	}
 	
-	public void emptyDeck(){
+	public void empty(){
 		for(int i = 0; i < maxNumberOfCards; i++)
 			cards[i] = false;
 		numberOfCards = 0;

@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import model.Card;
-import model.CardsDeck;
-import model.CardsStack;
+import model.cards.Card;
+import model.cards.CardsDeck;
+import model.cards.CardsStack;
 
 public class CardsDeckTest {
 

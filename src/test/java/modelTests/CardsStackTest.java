@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.CardsDeck;
-import model.CardsStack;
+import model.cards.CardsDeck;
+import model.cards.CardsStack;
 
 public class CardsStackTest {
 

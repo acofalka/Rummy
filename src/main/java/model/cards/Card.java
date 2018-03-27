@@ -1,4 +1,4 @@
-package model;
+package model.cards;
 
 public class Card implements Comparable<Card>{
 	private int deckId;	// unique id of the card
@@ -10,7 +10,7 @@ public class Card implements Comparable<Card>{
 	};
 	
 	public Card(int deckId){
-		if (deckId < 1 || deckId > 54)
+		if (deckId < 0 || deckId > 53)
 			throw new IllegalArgumentException();
 		this.deckId = deckId;
 		this.suit = deckIdToSuit(deckId);
@@ -25,8 +25,14 @@ public class Card implements Comparable<Card>{
 		this.rank = rank;
 	}
 	
+	public Card(Card card){
+		this.deckId = card.getDeckId();
+		this.rank = card.getRank();
+		this.suit = card.getSuit();
+	}
+	
 	private Suit deckIdToSuit(int deckId){
-		if (deckId < 1 || deckId > 54)
+		if (deckId < 0 || deckId > 53)
 			throw new IllegalArgumentException();
 		int suitId = deckId / 13;
 		Suit suit = Suit.values()[suitId];
@@ -34,7 +40,7 @@ public class Card implements Comparable<Card>{
 	}
 	
 	private int deckIdToRank(int deckId){
-		if (deckId < 1 || deckId > 54)
+		if (deckId < 0 || deckId > 53)
 			throw new IllegalArgumentException();
 		if (deckId >= 52)
 			return deckId - 39;
@@ -62,6 +68,15 @@ public class Card implements Comparable<Card>{
 		else if (suit == Suit.SPADE) return "Pik";
 		else if (suit == Suit.HEART) return "Kier";
 		else return "";
+	}
+	
+	public int getPoints(){
+		if (deckId >= 52)
+			return 150;
+		else if (rank > 8)
+			return 10;
+		else
+			return (rank + 2);
 	}
 	
 	public String getRankName(){
