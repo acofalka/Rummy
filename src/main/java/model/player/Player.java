@@ -18,7 +18,7 @@ public class Player {
 		Collections.sort(cards);
 	}
 	
-	public int numberOfCards(){
+	public int getNumberOfCards(){
 		return cards.size();
 	}
 	
@@ -75,7 +75,7 @@ public class Player {
 	
 	public int countPoints(){
 		int points = 0;
-		for (int i = 0; i < numberOfCards(); i++)
+		for (int i = 0; i < getNumberOfCards(); i++)
 			points += cards.get(i).getPoints();
 		return points;
 	}
