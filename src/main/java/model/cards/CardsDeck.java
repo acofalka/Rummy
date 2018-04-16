@@ -21,7 +21,7 @@ public class CardsDeck extends CardsCollection{
 		numberOfCards = maxNumberOfCards;
 	}
 	
-	public Card takeCard() throws NotEnoughCardsException {
+	public Card takeCard() {
 		if (numberOfCards == 0)
 			throw new NotEnoughCardsException();
 		int randomCardIndex = random.nextInt(numberOfCards);
