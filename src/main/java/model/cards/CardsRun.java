@@ -92,6 +92,37 @@ public class CardsRun extends CardsGroup {
 		}
 		return wasAdded;
 	}
+	
+	public boolean addCardsToRunOnTheTable(Card card){
+		if (this.getNumberOfCards() < 3)	
+			return false;
+		else{
+			Card p = firstCard();		
+			Card o = lastCard();
+			if (!card.getSuit().equals(p.getSuit()) && !(card.getSuit().equals(Suit.JOKER))){
+				return false;
+			}
+			else if (card.getRank() == p.getRank() - 1){
+				cards.add(0, card);
+				return true;
+			}
+			else if (!(card.getSuit().equals(Suit.JOKER)) && card.getRank() == o.getRank() + 1){
+				cards.add(card);
+				return true;
+			}
+			else if (card.getSuit().equals(Suit.JOKER) && 
+					!(cards.get(getNumberOfCards() - 1).getSuit().equals(Suit.JOKER)) 
+					&& o.getRank() != 12){
+				cards.add(card);
+				return true;
+			}
+			else if (card.getSuit().equals(Suit.JOKER) && !(cards.get(0).getSuit().equals(Suit.JOKER)) && p.getRank() != 0){
+				cards.add(0, card);
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public int getPoints() {
