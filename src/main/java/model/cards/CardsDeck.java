@@ -3,6 +3,8 @@ package model.cards;
 import java.util.ArrayList;
 import java.util.Random;
 
+import exceptions.NotEnoughCardsException;
+
 
 public class CardsDeck extends CardsCollection{
 
@@ -19,21 +21,21 @@ public class CardsDeck extends CardsCollection{
 		numberOfCards = maxNumberOfCards;
 	}
 	
-	public Card takeCard(){
+	public Card takeCard() throws NotEnoughCardsException {
 		if (numberOfCards == 0)
-			return null;
+			throw new NotEnoughCardsException();
 		int randomCardIndex = random.nextInt(numberOfCards);
 		int n = 0;
-		for (int i = 0; i < 54; i++){
+		for (int i = 0; i < maxNumberOfCards; i++){
 			if (!(cards[i]))
 				continue;
-			n++;
 			if(n == randomCardIndex){
 				Card card = new Card(i);
 				cards[i] = false;
 				numberOfCards--;
 				return card;
 			}
+			n++;
 		}
 		return null;
 	}
@@ -42,7 +44,7 @@ public class CardsDeck extends CardsCollection{
 		if (n > maxNumberOfCards || n < 0)
 			throw new IllegalArgumentException();
 		if(numberOfCards < n)
-			return null;
+			throw new NotEnoughCardsException();
 		ArrayList<Card> cards = new ArrayList<Card>();	
 		for (int i = 0; i < n; i++)
 			cards.add(this.takeCard());

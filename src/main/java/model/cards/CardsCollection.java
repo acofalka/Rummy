@@ -4,7 +4,7 @@ public abstract class CardsCollection {
 	protected boolean[] cards; // true - card with particular deckId is currently in the deck
 	protected int numberOfCards;
 	
-	protected final int maxNumberOfCards = 54;
+	protected static final int maxNumberOfCards = 54;
 	
 	public int getMaxNumberOfCards() {
 		return maxNumberOfCards;

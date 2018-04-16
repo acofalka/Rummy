@@ -31,12 +31,13 @@ public class CardsDeckTest {
 	
 	@Test
 	public void dealCardsTest(){
+		int numberOfCards = 12;
 		CardsDeck deck = new CardsDeck();
-		List<Card> cards = deck.dealCards(12);
-		assertEquals(12, cards.size());
-		for(int i = 0; i < 11; i++)
+		List<Card> cards = deck.dealCards(numberOfCards);
+		assertEquals(numberOfCards, cards.size());
+		for(int i = 0; i < numberOfCards - 1; i++)
 			assertFalse(cards.get(i).equals(cards.get(i+1)));
-		for(int i = 0; i < 12; i++){
+		for(int i = 0; i < numberOfCards; i++){
 			int deckId = cards.get(i).getDeckId();
 			assertFalse(deck.containsCard(deckId));
 		}

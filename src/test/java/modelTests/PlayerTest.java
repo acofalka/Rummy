@@ -13,10 +13,10 @@ public class PlayerTest {
 	@Test
 	public void addCardTest() {
 		int numberOfCards = 5;
-		int deckId = 14;
 		CardsDeck deck = new CardsDeck();
 		Player player = new Player(deck.dealCards(numberOfCards));
-		Card card = new Card(deckId);
+		Card card = deck.takeCard();
+		int deckId = card.getDeckId();
 		player.addCard(card);
 		assertEquals(numberOfCards + 1, player.getNumberOfCards());
 		assertTrue(player.doesHaveCardDeckId(deckId));
