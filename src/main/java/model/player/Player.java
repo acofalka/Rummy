@@ -11,6 +11,7 @@ public class Player {
 	
 	public Player(List<Card> cards) {
 		this.cards = cards;
+		Collections.sort(this.cards);
 	}
 	
 	public void addCard(Card card){

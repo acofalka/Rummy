@@ -9,6 +9,4 @@ public class AIPlayer extends Player {
 	public AIPlayer(List<Card> cards) {
 		super(cards);
 	}
-	
-	
 }
